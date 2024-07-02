@@ -1,0 +1,6 @@
+course structure and topics that will be covered
+
+Course Repository link :
+https://github.com/mschwarzmueller/angular-complete-guide-course-resources/tree/main/code-snapshots
+
+1)  Components 2)Directives 3)Pipes 4)services and Depedency Injection 5)Change detectin 6)HTTP 7)FOrms 8)Routing
