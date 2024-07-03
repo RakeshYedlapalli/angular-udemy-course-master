@@ -1,0 +1,30 @@
+<div class="container">
+  <app-cockpit (spCreated) = "onServerAdd($event)"
+  (bpCreated) = "onBluePrintAdded($event)"></app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      
+      <app-server-element *ngFor="let serveElement of serverElements"
+      [serverElement]="serveElement">
+    
+      <p>
+        <strong *ngIf="serveElement.type === 'server'" style="color: red">{{ serveElement.content }}</strong>
+        <em *ngIf="serveElement.type === 'blueprint'">{{ serveElement.content }}</em>
+      </p>
+    </app-server-element>
+    </div>
+
+  </div>
+  
+  
+</div>
+<!-- 
+<div class="row container">
+<input class="col-md-4 btn" type="text">
+<input class="col-md-4" type="text">
+<input class="col-md-4" type="text">
+<input class="col-md-4" type="text">
+<input class="col-md-4" type="text">
+
+</div> -->
