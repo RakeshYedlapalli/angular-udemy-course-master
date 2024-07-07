@@ -1,0 +1,9 @@
+<div class="row container">
+    <div class="col-md-6">
+        <button (click)="onSelectUser()" [class.active]="isUserSelected">
+            <img [src]="getImage" [alt]="user.name"/>
+            <span>{{user.name}}</span>
+        </button>
+        
+    </div>
+</div>

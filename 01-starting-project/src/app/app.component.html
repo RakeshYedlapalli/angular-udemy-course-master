@@ -1,0 +1,30 @@
+<!-- <div>
+  <header-component></header-component>
+</div>
+<header>
+  <img src="assets/angular-logo.png" alt="The Angular logo: The letter 'A'" />
+  <h1>Let's get started!</h1>
+  <p>Time to learn all about Angular!</p>
+</header> -->
+
+
+<header-component />
+<main>
+  <ul id="user">
+    @for (user of users; track user.id) {
+      <li>
+        <app-user [isUserSelected]="user.id === selectedUserId" (selectUser)="onSelectUserInApp($event)" [user]="user" />
+      </li>
+    }
+    
+  </ul>
+
+  @if (selectedUserId) {
+    <app-user-tasks [userId]= "selectedUserId" [username]="getSelectedUserName?.name"></app-user-tasks>  
+  }@else {
+    <p>Select a user to see their tasks</p> 
+  }
+  
+</main>
+
+<!-- <app-charts></app-charts> -->

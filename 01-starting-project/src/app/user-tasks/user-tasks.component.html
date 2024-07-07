@@ -1,0 +1,25 @@
+<section id="tasks">
+
+
+    <header>
+        <h2>
+            {{username}}'s Tasks
+        </h2>
+        <menu>
+            <button (click)="addDummyTasksForUser(userId!)">
+                Add Tasks
+            </button>
+        </menu>
+    </header>
+    <ul>
+        @for (task of getSelectedUserTasks; track $index) {
+            <li>
+                <app-tasks-list (completed)="makeTheTaskCompleted($event)" [tasks]="task"></app-tasks-list>
+            </li>
+        }
+       
+        
+    </ul>
+</section>
+
+
