@@ -1,0 +1,63 @@
+Certainly! Here are some important questions to ask the business team to gather the necessary information and ensure a high-quality implementation of Use Case 1:
+
+Understanding the Current Process
+
+	1.	Can you walk me through the current process of calculating utilization for supply chain programs?
+	•	What are the key steps involved?
+	•	Who is responsible for each step?
+	2.	What are the primary sources of data used in these calculations?
+	•	Which Excel sheets, email attachments, or other documents are used?
+	•	How frequently is the data updated?
+	3.	What specific calculations are performed, and what formulas or methods are used?
+	•	Are there any complex formulas or references that we need to be aware of?
+	4.	How is the data verified for accuracy before being sent to the client?
+	•	Are there any common issues or errors that occur during this process?
+
+Data and Technical Requirements
+
+	5.	Can you provide examples of the data files (Excel sheets, email attachments) currently used?
+	•	What specific data points or fields are essential for the calculations?
+	6.	Are there any specific data validation rules or standards we need to follow?
+	•	What are the criteria for ensuring data accuracy and completeness?
+	7.	How do you currently handle data updates and changes?
+	•	Is there a version control system in place for the data files?
+
+User Interaction and Reporting
+
+	8.	What are the expectations for the user interface of the new system?
+	•	What features or functionalities are essential for users?
+	9.	How do you currently generate and deliver reports to the client?
+	•	Are there specific formats or templates that need to be maintained?
+	10.	Who are the primary users of the system, and what are their roles?
+	•	How do they interact with the current system, and what challenges do they face?
+
+Business and Operational Considerations
+
+	11.	What are the key performance indicators (KPIs) for this process?
+	•	How do you measure the success of the current process?
+	12.	What are the potential risks if the calculations are incorrect or delayed?
+	•	How do you currently mitigate these risks?
+	13.	Are there any regulatory or compliance requirements we need to consider?
+	•	What are the consequences of non-compliance?
+	14.	What are the timelines and deadlines for delivering these calculations to the client?
+	•	How strict are these deadlines, and what happens if they are missed?
+
+Improvement and Feedback
+
+	15.	What are the main pain points or challenges you face with the current process?
+	•	How would you prioritize these challenges in terms of impact?
+	16.	What improvements or features would you like to see in the new system?
+	•	How do you envision these improvements enhancing the overall process?
+	17.	How do you currently gather feedback from users about the process?
+	•	Are there any recent feedback or suggestions that we should consider?
+
+Implementation and Support
+
+	18.	What resources or support will be available from the business team during the implementation?
+	•	Who will be the main point of contact for questions and clarifications?
+	19.	Are there any specific milestones or checkpoints that we need to adhere to during the implementation?
+	•	How do you prefer to track progress and communicate updates?
+	20.	What is the expected impact on business operations during the transition to the new system?
+	•	How can we minimize disruptions and ensure a smooth transition?
+
+By asking these questions, you’ll gain a comprehensive understanding of the current process, data requirements, user expectations, and potential challenges. This will help you design and implement a solution that meets the business team’s needs and delivers high-quality results.
