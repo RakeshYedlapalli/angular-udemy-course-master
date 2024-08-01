@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +24,7 @@
             padding: 12px 20px;
             display: inline-block;
             text-decoration: none;
-            /* transition: background 0.3s; */
+            transition: background 0.3s;
         }
 
         nav a:hover {
@@ -40,10 +39,7 @@
             border-radius: 5px;
         }
 
-        .upload-section,
-        .configuration-section,
-        .report-section,
-        .view-section {
+        .upload-section, .configuration-section, .report-section, .view-section {
             margin-top: 20px;
         }
 
@@ -51,10 +47,7 @@
             color: #333;
         }
 
-        input[type="text"],
-        input[type="number"],
-        input[type="date"],
-        select {
+        input[type="text"], input[type="number"], input[type="date"], select {
             padding: 10px;
             width: calc(100% - 22px);
             margin-bottom: 15px;
@@ -69,7 +62,7 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            /* transition: background 0.3s; */
+            transition: background 0.3s;
         }
 
         button:hover {
@@ -82,15 +75,12 @@
             margin-top: 10px;
         }
 
-        table,
-        th,
-        td {
+        table, th, td {
             border: 1px solid #ddd;
             text-align: left;
         }
 
-        th,
-        td {
+        th, td {
             padding: 8px;
             background-color: #f9f9f9;
         }
@@ -105,7 +95,6 @@
         }
     </style>
 </head>
-
 <body>
     <nav>
         <a href="#dashboard" onclick="showSection('dashboard')">Dashboard</a>
@@ -131,20 +120,6 @@
             <input type="file" id="fileInput" accept=".xlsx, .xls">
             <button onclick="uploadFile()">Upload File</button>
             <p class="error" id="uploadError"></p>
-        </div>
-        <div class="configuration-section" id="drawdownConfig" style="display:none;">
-            <h3>Drawdown Report Configuration</h3>
-            <label for="buyerName">Buyer Name:</label>
-            <input type="text" id="buyerName">
-            <label for="invoicePercent">Drawdown Invoice Percentage:</label>
-            <input type="number" id="invoicePercent" min="0" max="100">
-            <button onclick="generateDrawdownReport()">Generate Drawdown Report</button>
-        </div>
-        <div class="configuration-section" id="settlementConfig" style="display:none;">
-            <h3>Settlement Report Configuration</h3>
-            <label for="settlementPercent">Settlement CACIB Percentage:</label>
-            <input type="number" id="settlementPercent" min="0" max="100">
-            <button onclick="generateSettlementReport()">Generate Settlement Report</button>
         </div>
     </div>
 
@@ -233,14 +208,6 @@
             reports.push({ reportName, reportType, date, status });
             updateReportsTable();
 
-            if (reportType === 'drawdown') {
-                document.getElementById('drawdownConfig').style.display = 'block';
-                document.getElementById('settlementConfig').style.display = 'none';
-            } else if (reportType === 'settlement') {
-                document.getElementById('settlementConfig').style.display = 'block';
-                document.getElementById('drawdownConfig').style.display = 'none';
-            }
-
             fileInput.value = ''; // Reset file input
         }
 
@@ -250,10 +217,10 @@
         }
 
         function generateSettlementReport() {
-            alert("Settlement report generated successfully!");
-            updateReportStatus("Settlement");
-        } 
-        
+            alert('Settlement report generated successfully!');
+            updateReportStatus('Settlement');
+        }
+
         function updateReportsTable() {
             const reportsTable = document.getElementById('reportsTable');
             reportsTable.innerHTML = '';
@@ -261,16 +228,16 @@
             reports.forEach(report => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                <td>${report.reportName}</td>
-                <td>${report.reportType}</td>
-                <td>${report.date}</td>
-                <td>${report.status}</td>
-                <td>
-                    <button onclick="viewReport('${report.reportName}')">View</button>
-                    <button onclick="editReport('${report.reportName}')">Edit</button>
-                    <button onclick="deleteReport('${report.reportName}')">Delete</button>
-                </td>
-            `;
+                    <td>${report.reportName}</td>
+                    <td>${report.reportType}</td>
+                    <td>${report.date}</td>
+                    <td>${report.status}</td>
+                    <td>
+                        <button onclick="viewReport('${report.reportName}')">View</button>
+                        <button onclick="editReport('${report.reportName}')">Edit</button>
+                        <button onclick="deleteReport('${report.reportName}')">Delete</button>
+                    </td>
+                `;
                 reportsTable.appendChild(row);
             });
         }
@@ -291,6 +258,26 @@
             }
         }
 
+        function addBuyerConfig() {
+    const container = document.getElementById('buyerConfigContainer');
+    const config = document.createElement('div');
+    config.classList.add('buyer-config');
+
+    config.innerHTML = `
+        <label for="buyerName">Buyer Name:</label>
+        <input type="text" name="buyerName" placeholder="Enter Buyer Name">
+        <label for="drawdownPercent">Drawdown Invoice Percentage:</label>
+        <input type="number" name="drawdownPercent" min="0" max="100" placeholder="Enter Percentage">
+        <label for="settlementPercent">Settlement CACIB Percentage:</label>
+        <input type="number" name="settlementPercent" min="0" max="100" placeholder="Enter Percentage">
+        <label for="startDate">Start Date:</label>
+        <input type="date" name="startDate">
+        <button onclick="removeBuyerConfig(this)">Remove Buyer</button>
+    `;
+
+    container.appendChild(config);
+}
+
         function updateReportStatus(reportType) {
             reports.forEach(report => {
                 if (report.reportType.toLowerCase() === reportType.toLowerCase() && report.status === 'Open') {
@@ -300,31 +287,13 @@
             updateReportsTable();
         }
 
-        function addBuyerConfig() {
-            const container = document.getElementById('buyerConfigContainer');
-            const config = document.createElement('div');
-            config.classList.add('buyer-config');
-            config.innerHTML = `
-            <label for="buyerName">Buyer Name:</label>
-            <input type="text" name="buyerName">
-            <label for="drawdownPercent">Drawdown Invoice Percentage:</label>
-            <input type="number" name="drawdownPercent" min="0" max="100">
-            <label for="settlementPercent">Settlement CACIB Percentage:</label>
-            <input type="number" name="settlementPercent" min="0" max="100">
-            <label for="startDate">Start Date:</label>
-            <input type="date" name="startDate">
-            <button onclick="removeBuyerConfig(this)">Remove Buyer</button>
-        `;
-            container.appendChild(config);
-        }
-
         function removeBuyerConfig(button) {
-            const config = button.parentElement;
-            config.remove();
-        }
+        const config = button.parentElement;
+        config.remove();
+    }
 
-        function saveConfigurations() {
-            alert('Configurations saved successfully!');
-            // Here you would typically send the data to your backend
-        }
-    </script>
+    function saveConfigurations() {
+        alert('Configurations saved successfully!');
+        // Here you would typically send the data to your backend
+    }
+</script>
