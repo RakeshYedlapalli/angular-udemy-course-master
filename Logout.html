@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Financial Report Automation UI</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        nav {
+            background: #333;
+            padding: 10px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #444;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-info span {
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .user-info img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .logout-button {
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .logout-button:hover {
+            color: #ccc;
+        }
+
+        .container {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-links">
+            <a href="#" onclick="showSection('dashboard')">Dashboard</a>
+            <a href="#" onclick="showSection('upload')">Upload Reports</a>
+            <a href="#" onclick="showSection('view')">View Reports</a>
+            <a href="#" onclick="showSection('settings')">Configuration Settings</a>
+        </div>
+        <div class="user-info">
+            <img src="https://via.placeholder.com/150" alt="User Avatar" />
+            <span id="usernameDisplay">admin</span>
+            <button class="logout-button" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container" id="dashboard">
+        <h2>Dashboard</h2>
+        <p>Welcome to the Financial Report Automation System. Use the navigation to access different sections.</p>
+    </div>
+
+    <script>
+        // Function to handle logout
+        function logout() {
+            // Clear session storage or local storage to log out the user
+            sessionStorage.clear();
+            localStorage.clear();
+
+            // Redirect to login page
+            window.location.href = "login.html";
+        }
+
+        function showSection(sectionId) {
+            // Add your logic here to switch between sections (if you have dynamic content)
+        }
+
+        // Check if user is logged in (simple check for demonstration)
+        if (!sessionStorage.getItem("isLoggedIn")) {
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+
+</html>
